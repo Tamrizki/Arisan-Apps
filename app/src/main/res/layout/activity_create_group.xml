@@ -33,7 +33,7 @@
             android:text="@string/create_a_groups"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
-            style="@style/reg_18dp"
+            style="@style/semibold_18dp"
             android:textColor="@color/black_medium"/>
         <TextView
             android:id="@+id/tvSave"
@@ -83,20 +83,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/gray"
-                            />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/total_price"
-                        app:endIconMode="clear_text"
-                        android:layout_marginTop="10dp">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/etTotalPrice"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/gray"
+                            style="@style/reg_16dp"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,10 +98,86 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/gray"
+                            style="@style/reg_16dp"
+                            android:inputType="number"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/typeArisan"
+                        android:layout_marginTop="10dp"
+                        style="@style/reg_16dp"
+                        android:paddingVertical="14dp"/>
                 </LinearLayout>
             </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:layout_marginTop="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/input_member"
+                        style="@style/semibold_18dp"
+                        android:textColor="@color/black_medium"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/name_member"
+                        app:endIconMode="clear_text"
+                        android:layout_marginTop="6dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etNameMember"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            style="@style/reg_16dp"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/phone_member"
+                        app:endIconMode="clear_text">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPhoneMember"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            style="@style/reg_16dp"
+                            android:inputType="phone"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_member"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="10dp"
+                        style="@style/reg_12dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/member"
+                style="@style/semibold_18dp"
+                android:textColor="@color/black_medium"
+                android:layout_marginVertical="10dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMember"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

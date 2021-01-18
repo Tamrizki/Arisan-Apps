@@ -6,9 +6,19 @@
     <string name="create_a_groups">Create a group</string>
     <string name="active_group">Active groups</string>
     <string name="save">Save</string>
+    <string name="add_member">Add Member</string>
     <string name="group_name">Group name</string>
     <string name="total_price">Total price</string>
     <string name="price_member">Price per-member</string>
     <string name="edit_group">Edit Group</string>
     <string name="delete">Delete</string>
+    <string name="input_member">Input member</string>
+    <string name="member">Member</string>
+    <string name="name_member">Name member</string>
+    <string name="phone_member">Phone (optional)</string>
+    <string-array name="typeArisan">
+        <item>weekly</item>
+        <item>monthly</item>
+        <item>yearly</item>
+    </string-array>
 </resources>
