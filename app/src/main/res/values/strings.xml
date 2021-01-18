@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ArisanApps</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="hello">Hello there</string>
+    <string name="create_a_groups">Create a group</string>
+    <string name="active_group">Active groups</string>
+    <string name="save">Save</string>
+    <string name="group_name">Group name</string>
+    <string name="total_price">Total price</string>
+    <string name="price_member">Price per-member</string>
+</resources>
