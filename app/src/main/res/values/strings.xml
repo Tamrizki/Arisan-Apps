@@ -12,8 +12,13 @@
     <string name="price_member">Price per-member</string>
     <string name="edit_group">Edit Group</string>
     <string name="delete">Delete</string>
+    <string name="call">Call</string>
     <string name="input_member">Input member</string>
     <string name="member">Member</string>
+    <string name="vote">Vote</string>
+    <string name="paid">Has paid</string>
+    <string name="unpaid">Unpaid</string>
+    <string name="money_collected">Money collected</string>
     <string name="name_member">Name member</string>
     <string name="phone_member">Phone (optional)</string>
     <string-array name="typeArisan">

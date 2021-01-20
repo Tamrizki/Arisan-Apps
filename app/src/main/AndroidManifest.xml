@@ -9,14 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ArisanApps">
-        <activity android:name=".activity.creategroup.CreateGroupActivity">
-        </activity>
+        <activity android:name=".activity.detailGroup.DetailGroupActivity"></activity>
+        <activity android:name=".activity.creategroup.CreateGroupActivity"></activity>
         <activity android:name=".activity.splashscreen.SplashScreenActivity">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".activity.onBoarding.OnBoardingActivity" />
         <activity android:name=".activity.home.HomeActivity">

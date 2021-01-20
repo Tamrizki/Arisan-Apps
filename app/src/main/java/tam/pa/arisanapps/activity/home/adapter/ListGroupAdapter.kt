@@ -1,6 +1,7 @@
 package tam.pa.arisanapps.activity.home.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import tam.pa.arisanapps.R
 import tam.pa.arisanapps.model.DataListGroup
 import kotlinx.android.synthetic.main.custom_list_group.*
+import tam.pa.arisanapps.activity.detailGroup.DetailGroupActivity
 import tam.pa.arisanapps.activity.home.dialog.EditListDialog
 
 class ListGroupAdapter(val listGroup: ArrayList<DataListGroup>, val context: Context):
@@ -34,9 +36,13 @@ class ListGroupAdapter(val listGroup: ArrayList<DataListGroup>, val context: Con
 
     override fun onBindViewHolder(holder: vholder, position: Int) {
         holder.bind(listGroup.get(position))
-        holder.itemView.setOnClickListener {
+        holder.itemView.setOnLongClickListener {
             val dialog = EditListDialog(context, listGroup.get(position).nameGroup)
             dialog.show()
+            return@setOnLongClickListener(true)
+        }
+        holder.itemView.setOnClickListener {
+            context.startActivity(Intent(context, DetailGroupActivity::class.java))
         }
     }
 

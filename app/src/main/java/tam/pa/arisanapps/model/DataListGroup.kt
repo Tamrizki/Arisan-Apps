@@ -8,13 +8,13 @@ data class DataListGroup(
     val nameGroup: String,
     val type: String,
     val member: String,
-    val img: String, ): Parcelable{
+    val img: String? ): Parcelable{
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
-        parcel.readString()!!
+        parcel.readString()
     ) {
     }
 
