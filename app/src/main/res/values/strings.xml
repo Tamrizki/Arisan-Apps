@@ -13,14 +13,19 @@
     <string name="edit_group">Edit Group</string>
     <string name="delete">Delete</string>
     <string name="call">Call</string>
+    <string name="win">Already won</string>
     <string name="input_member">Input member</string>
     <string name="member">Member</string>
     <string name="vote">Vote</string>
     <string name="paid">Has paid</string>
+    <string name="fail_input">Data tidak berhasil disimpan!</string>
+    <string name="success_input">Data berhasil disimpan!</string>
+    <string name="info_minim_member">Grup harus berisi minimal 1 member!</string>
     <string name="unpaid">Unpaid</string>
+    <string name="valid_form">Form tidak boleh kosong!</string>
     <string name="money_collected">Money collected</string>
     <string name="name_member">Name member</string>
-    <string name="phone_member">Phone (optional)</string>
+    <string name="phone_member">Phone</string>
     <string-array name="typeArisan">
         <item>weekly</item>
         <item>monthly</item>

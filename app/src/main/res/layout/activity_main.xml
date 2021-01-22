@@ -91,12 +91,33 @@
                 android:layout_height="match_parent"
                 android:text="@string/active_group"
                 style="@style/semibold_16dp"
-                android:textColor="@color/black_medium"/>
+                android:textColor="@color/black_medium" />
+            <LinearLayout
+                android:id="@+id/imgEmptyGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="100dp"
+                android:visibility="gone" >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:src="@drawable/ic_group"
+                    android:alpha="0.6" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tidak ada grup aktif"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/black_medium"
+                    style="@style/semibold_18dp"
+                    android:layout_marginTop="6dp"/>
+            </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvListGroup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="16sp"/>
+                android:layout_marginTop="16sp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

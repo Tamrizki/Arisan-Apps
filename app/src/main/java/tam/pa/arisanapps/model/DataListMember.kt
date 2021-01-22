@@ -1,36 +1,17 @@
 package tam.pa.arisanapps.model
 
+import android.os.Build
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.annotation.RequiresApi
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class DataListMember(
-    val id: String,
+    val id: Int,
+    val idGroup: Int,
     val nameMember: String,
     val phone: String?,
-    val statusPayment: String): Parcelable {
-    constructor(parcel: Parcel) : this(
-        parcel.readString()!!,
-        parcel.readString()!!,
-        parcel.readString(),
-        parcel.readString()!!
-    ) {
-    }
-
-    override fun describeContents(): Int {
-        TODO("Not yet implemented")
-    }
-
-    override fun writeToParcel(p0: Parcel?, p1: Int) {
-        TODO("Not yet implemented")
-    }
-
-    companion object CREATOR : Parcelable.Creator<DataListMember> {
-        override fun createFromParcel(parcel: Parcel): DataListMember {
-            return DataListMember(parcel)
-        }
-
-        override fun newArray(size: Int): Array<DataListMember?> {
-            return arrayOfNulls(size)
-        }
-    }
+    val statusPayment: String,
+    val win: String): Parcelable {
 }

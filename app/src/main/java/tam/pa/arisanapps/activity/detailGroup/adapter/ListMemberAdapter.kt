@@ -1,9 +1,11 @@
 package tam.pa.arisanapps.activity.detailGroup.adapter
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import tam.pa.arisanapps.R
@@ -15,11 +17,23 @@ class ListMemberAdapter(val context: Context, val list: ArrayList<DataListMember
     class vholder(view: View): RecyclerView.ViewHolder(view) {
         val tvName: TextView = view.findViewById(R.id.tvName)
         val tvPhone: TextView = view.findViewById(R.id.tvPhone)
+        val llBackground: LinearLayout = view.findViewById(R.id.llBackground)
         val tvStatusPayment: TextView = view.findViewById(R.id.tvStatusPayment)
         fun bind(get: DataListMember) {
             tvName.text = get.nameMember
             tvPhone.text = get.phone
-            tvStatusPayment.text = get.statusPayment
+            if (get.statusPayment.equals("1")){
+                tvStatusPayment.text = itemView.resources.getString(R.string.paid)
+                tvStatusPayment.setTextColor(itemView.resources.getColor(R.color.green))
+            }else{
+                tvStatusPayment.text = itemView.resources.getString(R.string.unpaid)
+                tvStatusPayment.setTextColor(itemView.resources.getColor(R.color.red))
+            }
+            if (get.win.equals("0")){
+                llBackground.setBackgroundDrawable(itemView.resources.getDrawable(R.drawable.bg_list_member_dark))
+            }else{
+                llBackground.setBackgroundDrawable(itemView.resources.getDrawable(R.drawable.bg_list_member_white))
+            }
         }
     }
 

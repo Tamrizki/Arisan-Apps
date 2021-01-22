@@ -14,6 +14,7 @@
         android:orientation="horizontal"
         android:padding="15dp">
         <RelativeLayout
+            android:id="@+id/rlBack"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/bg_back_button"
@@ -36,7 +37,7 @@
             style="@style/semibold_18dp"
             android:textColor="@color/black_medium"/>
         <TextView
-            android:id="@+id/tvSave"
+            android:id="@+id/btnSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save"
@@ -74,6 +75,7 @@
                     android:orientation="vertical"
                     android:layout_marginStart="10dp">
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilNameGroup"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Group name"
@@ -88,6 +90,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilPrice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/price_member"
@@ -103,6 +106,7 @@
                             />
                     </com.google.android.material.textfield.TextInputLayout>
                     <Spinner
+                        android:id="@+id/spType"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:entries="@array/typeArisan"
@@ -129,6 +133,7 @@
                         android:textColor="@color/black_medium"/>
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilNameMember"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/name_member"
@@ -143,6 +148,7 @@
                             />
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/phone_member"
@@ -157,6 +163,7 @@
                             />
                     </com.google.android.material.textfield.TextInputLayout>
                     <Button
+                        android:id="@+id/btnSaveMember"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/add_member"

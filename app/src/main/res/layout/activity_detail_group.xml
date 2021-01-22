@@ -86,6 +86,7 @@
                     style="@style/bold_18dp"
                     android:textColor="@color/black_medium"/>
                 <TextView
+                    android:id="@+id/tvTotalMoney"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/money_collected"
@@ -100,6 +101,7 @@
                     android:textColor="@color/black_medium"
                     android:layout_marginTop="10dp"/>
                 <TextView
+                    android:id="@+id/tvPriceMember"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rp. 100.000"

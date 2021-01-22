@@ -2,6 +2,7 @@ package tam.pa.arisanapps.activity.home.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,7 +26,7 @@ class ListGroupAdapter(val listGroup: ArrayList<DataListGroup>, val context: Con
         fun bind(get: DataListGroup) {
             tvNameGroup.text = get.nameGroup
             tvType.text = get.type
-            tvMember.text = get.member+" member"
+            tvMember.text = get.totalMember.toString()+" member"
         }
 
     }
@@ -42,7 +43,9 @@ class ListGroupAdapter(val listGroup: ArrayList<DataListGroup>, val context: Con
             return@setOnLongClickListener(true)
         }
         holder.itemView.setOnClickListener {
-            context.startActivity(Intent(context, DetailGroupActivity::class.java))
+            val intent = Intent(context, DetailGroupActivity::class.java)
+            intent.putExtra("dataGroup", listGroup.get(position))
+            context.startActivity(intent)
         }
     }
 

@@ -19,6 +19,22 @@
             style="@style/bold_18dp"
             android:textColor="@color/black_medium"
             />
+        <CheckBox
+            android:id="@+id/cbPaid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/paid"
+            style="@style/reg_16dp"
+            android:paddingStart="6dp"
+            android:layout_marginTop="6dp"/>
+        <CheckBox
+            android:id="@+id/cbWin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/win"
+            style="@style/reg_16dp"
+            android:paddingStart="6dp"
+            android:layout_marginTop="6dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,12 +61,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
                 <Button
-                    android:id="@+id/btnPaid"
+                    android:id="@+id/btnSimpan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_button"
                     style="@style/reg_12dp"
-                    android:text="@string/paid"
+                    android:text="@string/save"
                     android:layout_centerHorizontal="true"/>
             </RelativeLayout>
         </LinearLayout>
