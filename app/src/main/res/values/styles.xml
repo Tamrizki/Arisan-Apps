@@ -60,4 +60,11 @@
         <item name="fontFamily">@font/nunito_regular</item>
         <item name="android:textSize">12sp</item>
     </style>
+    <!--   Bottom sheet dialog -->
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>

@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 
 class SharedPref (val context: Context){
     companion object{
-        const val SPLASH_SCREEN = "SPLASH_SCREEN"
+        const val SPLASH_SCREEN = "PROFILR_PIC"
     }
     var sharedPref = context.getSharedPreferences(SPLASH_SCREEN, 0)
 

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_create_group.*
 import tam.pa.arisanapps.R
 import tam.pa.arisanapps.activity.creategroup.adapter.MemberAdapter
+import tam.pa.arisanapps.activity.creategroup.dialog.ProfileDialog
 import tam.pa.arisanapps.activity.home.HomeActivity
 import tam.pa.arisanapps.helper.DbHandler
 import tam.pa.arisanapps.model.DataListGroup
@@ -32,6 +33,7 @@ class CreateGroupActivity : AppCompatActivity(), View.OnClickListener {
         btnSave.setOnClickListener(this)
         rlBack.setOnClickListener(this)
         btnSaveMember.setOnClickListener(this)
+        btnProfile.setOnClickListener(this)
     }
     private fun setListMember(){
         listMember = db.readMember(idGroup)
@@ -60,6 +62,10 @@ class CreateGroupActivity : AppCompatActivity(), View.OnClickListener {
                     setListMember()
                 }
             }
+        } else if (view == btnProfile){
+            val dialog = ProfileDialog(this)
+            dialog.show()
+            dialog.setCanceledOnTouchOutside(true)
         }
     }
 

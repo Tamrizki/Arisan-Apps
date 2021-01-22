@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_bottom_dialog"
+    android:paddingHorizontal="25dp"
+    android:orientation="vertical" >
+    <View
+        android:layout_width="80dp"
+        android:layout_height="5dp"
+        android:background="@drawable/bg_list_member_white"
+        android:backgroundTint="@color/green"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile Grup"
+        style="@style/semibold_18dp"
+        android:textColor="@color/black_medium"
+        android:layout_marginTop="10dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>

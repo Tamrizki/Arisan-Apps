@@ -64,6 +64,7 @@
                     android:layout_height="70dp"
                     android:background="@drawable/btn_photo">
                     <ImageView
+                        android:id="@+id/btnProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_camera"
