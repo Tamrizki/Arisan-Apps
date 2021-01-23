@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="150dp"
-    android:layout_height="150dp">
-    <ImageView
-        android:id="@+id/imgCheck"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:src="@drawable/ic_check"
-        android:layout_margin="10dp"
-        android:layout_alignParentEnd="true"/>
-    <ImageView
-        android:id="@+id/imgProfile"
-        android:layout_width="150dp"
-        android:layout_height="150dp"/>
-</RelativeLayout>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="70dp"
+    android:layout_margin="4dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/img_"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

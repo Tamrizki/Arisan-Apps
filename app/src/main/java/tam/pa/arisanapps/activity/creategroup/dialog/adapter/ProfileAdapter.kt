@@ -5,15 +5,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import tam.pa.arisanapps.R
-import tam.pa.arisanapps.helper.SharedPref
+import tam.pa.arisanapps.activity.creategroup.getProfile
 
-class ProfileAdapter(val context: Context): RecyclerView.Adapter<ProfileAdapter.vholder>() {
-    val list = arrayListOf(R.drawable.img_, R.drawable.img_abstract, R.drawable.img_leaves, R.drawable.img_mountain, R.drawable.img_scrapbook, R.drawable.img_polka)
-    val sharedPref = SharedPref(context)
+class ProfileAdapter(val context: Context, val getProfile: getProfile): RecyclerView.Adapter<ProfileAdapter.vholder>() {
+    val list = arrayListOf(R.drawable.img_,
+            R.drawable.img_abstract,
+            R.drawable.img_leaves,
+            R.drawable.img_mountain,
+            R.drawable.img_scrapbook,
+            R.drawable.img_polka,
+            R.drawable.img_background,
+            R.drawable.img_cactus,
+            R.drawable.img_cat,
+            R.drawable.img_flowerjpg,
+            R.drawable.img_confetti,
+            R.drawable.img_leaf,
+            R.drawable.img_rabbits,
+            R.drawable.img_shabby,
+            R.drawable.img_wood,
+            )
     class vholder(view: View): RecyclerView.ViewHolder(view) {
         val img: ImageView = view.findViewById(R.id.imgProfile)
         fun bind(get: Int) {
@@ -28,8 +40,7 @@ class ProfileAdapter(val context: Context): RecyclerView.Adapter<ProfileAdapter.
     override fun onBindViewHolder(holder: vholder, position: Int) {
         holder.bind(list.get(position))
         holder.itemView.setOnClickListener {
-            sharedPref.setValue("profile", (position+1).toString())
-
+            getProfile.onGetProflie(position+1)
         }
     }
 

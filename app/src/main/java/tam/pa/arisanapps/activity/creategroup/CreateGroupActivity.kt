@@ -15,18 +15,29 @@ import tam.pa.arisanapps.activity.creategroup.adapter.MemberAdapter
 import tam.pa.arisanapps.activity.creategroup.dialog.ProfileDialog
 import tam.pa.arisanapps.activity.home.HomeActivity
 import tam.pa.arisanapps.helper.DbHandler
+import tam.pa.arisanapps.helper.ProfileHelper
+import tam.pa.arisanapps.helper.SharedPref
 import tam.pa.arisanapps.model.DataListGroup
 import tam.pa.arisanapps.model.DataListMember
 
-class CreateGroupActivity : AppCompatActivity(), View.OnClickListener {
+class CreateGroupActivity : AppCompatActivity(), View.OnClickListener, getProfile {
+    lateinit var getProfile: getProfile
     lateinit var db: DbHandler
+    lateinit var profileHelper: ProfileHelper
     var idGroup: Int = 0
+    var img = "0"
     lateinit var adapter: MemberAdapter
     lateinit var listMember: MutableList<DataListMember>
+    lateinit var sharedPref: SharedPref
+    lateinit var dialog :ProfileDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_group)
+        sharedPref = SharedPref(this)
+        profileHelper = ProfileHelper(this)
+        getProfile = this
         db = DbHandler(this)
+        dialog = ProfileDialog(this, getProfile)
         idGroup = db.readData().size+1
         setListMember()
 
@@ -63,7 +74,6 @@ class CreateGroupActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
         } else if (view == btnProfile){
-            val dialog = ProfileDialog(this)
             dialog.show()
             dialog.setCanceledOnTouchOutside(true)
         }
@@ -72,7 +82,7 @@ class CreateGroupActivity : AppCompatActivity(), View.OnClickListener {
     private fun inputData(nameGroup: String, typeGroup: String, price: String) {
         var totalMember = db.readMember(idGroup).size
         if (totalMember>0){
-            val input = db.insertData(DataListGroup(idGroup, nameGroup, typeGroup, price, totalMember, ""))
+            val input = db.insertData(DataListGroup(idGroup, nameGroup, typeGroup, price, totalMember, img ))
             if (!input)
                 Toast.makeText(this, getString(R.string.fail_input), Toast.LENGTH_LONG).show()
             else{
@@ -126,5 +136,11 @@ class CreateGroupActivity : AppCompatActivity(), View.OnClickListener {
     private fun clearFormGroup(){
         etNameGroup.text = "".toEditable()
         etPriceMember.text = "".toEditable()
+    }
+
+    override fun onGetProflie(index: Int) {
+        img = index.toString()
+        btnProfile.setImageResource(profileHelper.getProfileImage(index))
+        dialog.dismiss()
     }
 }
