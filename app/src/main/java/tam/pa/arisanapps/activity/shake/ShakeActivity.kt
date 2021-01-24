@@ -39,7 +39,7 @@ class ShakeActivity : AppCompatActivity() {
         val outerColor = ArrayList<Int>()
         outerColor.add(Color.parseColor("#3D946A"))
         outerColor.add(Color.parseColor("#FFFFEB3B"))
-        radialProgressBar.setMaxProgressOuterView(30)
+        radialProgressBar.setMaxProgressOuterView(20)
         radialProgressBar.setOuterProgressColor(outerColor)
 
     }
@@ -57,8 +57,10 @@ class ShakeActivity : AppCompatActivity() {
             if (acceleration > 12){
                 number++
                 radialProgressBar.setOuterProgress(number)
-                if (number == 30){
-
+                if (number == 20){
+                    rlShake.visibility = View.INVISIBLE
+                    llCongrats.visibility = View.VISIBLE
+                    lottieAnimGift.playAnimation()
                 }
             }
         }

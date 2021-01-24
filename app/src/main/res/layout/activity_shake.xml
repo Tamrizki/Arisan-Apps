@@ -6,44 +6,81 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.shake.ShakeActivity">
+    <RelativeLayout
+        android:id="@+id/rlShake"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ayo,"
+                style="@style/semibold_24dp"
+                android:textColor="@color/black_medium"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Goyangkan smartphone mu sekarang!"
+                style="@style/semibold_20dp"
+                android:textColor="@color/black_medium"
+                />
+        </LinearLayout>
+        <com.mindorks.RadialProgressBar
+            android:id="@+id/radialProgressBar"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            app:useRoundedCorner="true"
+            app:isAnimationOn="true"
+            />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnim"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginHorizontal="25dp"
+            app:lottie_rawRes="@raw/shake_the_phone"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/llCongrats"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        >
+        android:visibility="invisible"
+        android:layout_centerInParent="true">
         <TextView
+            android:id="@+id/tvCongrats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ayo,"
-            style="@style/semibold_24dp"
-            android:textColor="@color/black_medium"
-            />
+            android:text="Selamat kepada,"
+            style="@style/semibold_16dp"
+            android:layout_gravity="center_horizontal" />
         <TextView
+            android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Goyangkan smartphone mu sekarang!"
-            style="@style/semibold_20dp"
-            android:textColor="@color/black_medium"
+            android:text="Username"
+            style="@style/bold_24dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/black_medium" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimGift"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_rawRes="@raw/gift"
+            app:lottie_autoPlay="false"
+            app:lottie_repeatCount="2"
+            android:layout_marginTop="50dp"
             />
     </LinearLayout>
-    <com.mindorks.RadialProgressBar
-        android:id="@+id/radialProgressBar"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_centerInParent="true"
-        app:useRoundedCorner="true"
-        app:isAnimationOn="true"
-        />
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnim"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginHorizontal="25dp"
-        app:lottie_rawRes="@raw/shake_the_phone"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        android:layout_centerInParent="true"
-        />
 </RelativeLayout>

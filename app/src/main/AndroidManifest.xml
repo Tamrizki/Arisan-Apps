@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ArisanApps">
-        <activity android:name=".activity.shake.ShakeActivity"/>
+        <activity android:name=".activity.shake.ShakeActivity" />
         <activity android:name=".activity.detailGroup.DetailGroupActivity" />
         <activity android:name=".activity.creategroup.CreateGroupActivity" />
         <activity android:name=".activity.splashscreen.SplashScreenActivity">
