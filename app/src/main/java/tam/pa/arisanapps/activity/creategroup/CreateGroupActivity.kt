@@ -4,9 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
-import android.util.Log
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_create_group.*
@@ -20,8 +18,8 @@ import tam.pa.arisanapps.helper.SharedPref
 import tam.pa.arisanapps.model.DataListGroup
 import tam.pa.arisanapps.model.DataListMember
 
-class CreateGroupActivity : AppCompatActivity(), View.OnClickListener, getProfile {
-    lateinit var getProfile: getProfile
+class CreateGroupActivity : AppCompatActivity(), View.OnClickListener, ViewGetProfile {
+    lateinit var ViewGetProfile: ViewGetProfile
     lateinit var db: DbHandler
     lateinit var profileHelper: ProfileHelper
     var idGroup: Int = 0
@@ -35,9 +33,9 @@ class CreateGroupActivity : AppCompatActivity(), View.OnClickListener, getProfil
         setContentView(R.layout.activity_create_group)
         sharedPref = SharedPref(this)
         profileHelper = ProfileHelper(this)
-        getProfile = this
+        ViewGetProfile = this
         db = DbHandler(this)
-        dialog = ProfileDialog(this, getProfile)
+        dialog = ProfileDialog(this, ViewGetProfile)
         idGroup = db.readData().size+1
         setListMember()
 

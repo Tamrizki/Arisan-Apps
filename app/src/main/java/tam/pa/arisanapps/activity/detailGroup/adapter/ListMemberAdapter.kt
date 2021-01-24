@@ -13,7 +13,7 @@ import tam.pa.arisanapps.activity.detailGroup.dialog.ListMemberDialog
 import tam.pa.arisanapps.activity.home.adapter.ListGroupAdapter
 import tam.pa.arisanapps.model.DataListMember
 
-class ListMemberAdapter(val context: Context, val list: ArrayList<DataListMember>): RecyclerView.Adapter<ListMemberAdapter.vholder>() {
+class ListMemberAdapter(val context: Context, val list: MutableList<DataListMember>): RecyclerView.Adapter<ListMemberAdapter.vholder>() {
     class vholder(view: View): RecyclerView.ViewHolder(view) {
         val tvName: TextView = view.findViewById(R.id.tvName)
         val tvPhone: TextView = view.findViewById(R.id.tvPhone)
@@ -29,7 +29,7 @@ class ListMemberAdapter(val context: Context, val list: ArrayList<DataListMember
                 tvStatusPayment.text = itemView.resources.getString(R.string.unpaid)
                 tvStatusPayment.setTextColor(itemView.resources.getColor(R.color.red))
             }
-            if (get.win.equals("0")){
+            if (get.win.equals("1")){
                 llBackground.setBackgroundDrawable(itemView.resources.getDrawable(R.drawable.bg_list_member_dark))
             }else{
                 llBackground.setBackgroundDrawable(itemView.resources.getDrawable(R.drawable.bg_list_member_white))

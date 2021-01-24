@@ -11,5 +11,4 @@ data class DataListGroup(
     val priceMember: String,
     val totalMember: Int,
     val img: String? ): Parcelable{
-
 }

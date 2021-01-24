@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import tam.pa.arisanapps.R
-import tam.pa.arisanapps.activity.creategroup.getProfile
+import tam.pa.arisanapps.activity.creategroup.ViewGetProfile
 
-class ProfileAdapter(val context: Context, val getProfile: getProfile): RecyclerView.Adapter<ProfileAdapter.vholder>() {
+class ProfileAdapter(val context: Context, val ViewGetProfile: ViewGetProfile): RecyclerView.Adapter<ProfileAdapter.vholder>() {
     val list = arrayListOf(R.drawable.img_,
             R.drawable.img_abstract,
             R.drawable.img_leaves,
@@ -40,7 +40,7 @@ class ProfileAdapter(val context: Context, val getProfile: getProfile): Recycler
     override fun onBindViewHolder(holder: vholder, position: Int) {
         holder.bind(list.get(position))
         holder.itemView.setOnClickListener {
-            getProfile.onGetProflie(position+1)
+            ViewGetProfile.onGetProflie(position+1)
         }
     }
 

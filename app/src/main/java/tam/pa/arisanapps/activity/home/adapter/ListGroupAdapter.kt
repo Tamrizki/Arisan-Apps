@@ -13,6 +13,7 @@ import tam.pa.arisanapps.model.DataListGroup
 import tam.pa.arisanapps.activity.detailGroup.DetailGroupActivity
 import tam.pa.arisanapps.activity.home.dialog.EditListDialog
 import tam.pa.arisanapps.helper.ProfileHelper
+import tam.pa.arisanapps.helper.SharedPref
 
 class ListGroupAdapter(val listGroup: ArrayList<DataListGroup>, val context: Context):
     RecyclerView.Adapter<ListGroupAdapter.vholder>() {
@@ -45,7 +46,8 @@ class ListGroupAdapter(val listGroup: ArrayList<DataListGroup>, val context: Con
         }
         holder.itemView.setOnClickListener {
             val intent = Intent(context, DetailGroupActivity::class.java)
-            intent.putExtra("dataGroup", listGroup.get(position))
+            val sharedPref = SharedPref(context)
+            sharedPref.setValue("DetailIdGroup", listGroup.get(position).id.toString())
             context.startActivity(intent)
         }
     }
@@ -54,3 +56,4 @@ class ListGroupAdapter(val listGroup: ArrayList<DataListGroup>, val context: Con
         return listGroup.size
     }
 }
+

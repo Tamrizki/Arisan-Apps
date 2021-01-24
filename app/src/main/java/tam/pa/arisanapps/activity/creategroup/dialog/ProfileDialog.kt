@@ -9,15 +9,15 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.dialog_image_profile.*
 import tam.pa.arisanapps.R
 import tam.pa.arisanapps.activity.creategroup.dialog.adapter.ProfileAdapter
-import tam.pa.arisanapps.activity.creategroup.getProfile
+import tam.pa.arisanapps.activity.creategroup.ViewGetProfile
 
-class ProfileDialog(val ctx: Context, val getProfile: getProfile): BottomSheetDialog(ctx, R.style.BottomSheetDialogTheme){
+class ProfileDialog(val ctx: Context, val ViewGetProfile: ViewGetProfile): BottomSheetDialog(ctx, R.style.BottomSheetDialogTheme){
     init {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         setContentView(R.layout.dialog_image_profile)
         rvProfile.setHasFixedSize(true)
-        rvProfile.adapter = ProfileAdapter(context, getProfile)
+        rvProfile.adapter = ProfileAdapter(context, ViewGetProfile)
         rvProfile.layoutManager = GridLayoutManager(context, 3)
     }
 

@@ -44,4 +44,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+//  dependency for lottie animation
+    implementation 'com.airbnb.android:lottie:3.6.0'
+//   dependency for radialprogressbar
+    implementation 'com.github.MindorksOpenSource:RadialProgressBar:v1.3'
 }

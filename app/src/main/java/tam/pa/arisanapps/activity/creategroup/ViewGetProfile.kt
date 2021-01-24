@@ -1,6 +1,6 @@
 package tam.pa.arisanapps.activity.creategroup
 
 
-interface getProfile {
+interface ViewGetProfile {
     fun onGetProflie(index: Int)
 }

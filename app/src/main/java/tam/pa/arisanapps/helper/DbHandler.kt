@@ -148,6 +148,24 @@ class DbHandler(val context: Context): SQLiteOpenHelper(context, DbHandler.DB_NA
         return (Integer.parseInt("$_success") != -1)
     }
 
+    fun readDataGroup(index: Int): DataListGroup{
+        var dataGroup = DataListGroup(0, "", "", "", 0, "")
+        val db = writableDatabase
+        val query =  "SELECT * FROM $TABLE_NAME WHERE $ID = $index"
+        val result = db.rawQuery(query, null)
+        if (result.moveToFirst()){
+            do { dataGroup = DataListGroup(
+                        result.getString(result.getColumnIndex(ID)).toInt(),
+                        result.getString(result.getColumnIndex(NAME)),
+                        result.getString(result.getColumnIndex(TYPE)),
+                        result.getString(result.getColumnIndex(PRICE)),
+                        result.getString(result.getColumnIndex(TOTAL_MEMBER)).toInt(),
+                        result.getString(result.getColumnIndex(IMG)))
+            }while (result.moveToNext())
+        }
+        return dataGroup
+    }
+
     fun readData(): MutableList<DataListGroup>{
         val listData: MutableList<DataListGroup> = ArrayList()
         val db = writableDatabase
