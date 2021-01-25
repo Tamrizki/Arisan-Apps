@@ -39,6 +39,7 @@
             android:layout_centerInParent="true"
             app:useRoundedCorner="true"
             app:isAnimationOn="true"
+            app:outerMaxProgress="20"
             />
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieAnim"
@@ -83,4 +84,50 @@
             android:layout_marginTop="50dp"
             />
     </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="15dp"
+        android:visibility="invisible">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginVertical="10dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <Button
+                    android:id="@+id/btnRepeat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/repeat"
+                    style="@style/bold_12dp"
+                    android:paddingVertical="10dp"
+                    android:paddingHorizontal="16dp"
+                    android:backgroundTint="@color/white"
+                    android:textColor="@color/black_medium"
+                    android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <Button
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/back"
+                    style="@style/bold_12dp"
+                    android:paddingVertical="10dp"
+                    android:paddingHorizontal="20dp"
+                    android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </RelativeLayout>

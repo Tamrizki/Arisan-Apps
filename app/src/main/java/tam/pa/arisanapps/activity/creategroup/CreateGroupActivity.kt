@@ -13,7 +13,7 @@ import tam.pa.arisanapps.activity.creategroup.adapter.MemberAdapter
 import tam.pa.arisanapps.activity.creategroup.dialog.ProfileDialog
 import tam.pa.arisanapps.activity.home.HomeActivity
 import tam.pa.arisanapps.helper.DbHandler
-import tam.pa.arisanapps.helper.ProfileHelper
+import tam.pa.arisanapps.helper.PoinHelper
 import tam.pa.arisanapps.helper.SharedPref
 import tam.pa.arisanapps.model.DataListGroup
 import tam.pa.arisanapps.model.DataListMember
@@ -21,29 +21,44 @@ import tam.pa.arisanapps.model.DataListMember
 class CreateGroupActivity : AppCompatActivity(), View.OnClickListener, ViewGetProfile {
     lateinit var ViewGetProfile: ViewGetProfile
     lateinit var db: DbHandler
-    lateinit var profileHelper: ProfileHelper
+    lateinit var poinHelper: PoinHelper
     var idGroup: Int = 0
     var img = "0"
     lateinit var adapter: MemberAdapter
     lateinit var listMember: MutableList<DataListMember>
     lateinit var sharedPref: SharedPref
     lateinit var dialog :ProfileDialog
+    lateinit var datagroup: DataListGroup
+    var input: Boolean = false
+    var modeEdit: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_group)
         sharedPref = SharedPref(this)
-        profileHelper = ProfileHelper(this)
+        poinHelper = PoinHelper(this)
         ViewGetProfile = this
         db = DbHandler(this)
         dialog = ProfileDialog(this, ViewGetProfile)
         idGroup = db.readData().size+1
+        try {
+            datagroup = intent.getParcelableExtra("editGroup")!!
+            setFormData(datagroup)
+            idGroup = datagroup.id
+            modeEdit = true
+        }catch (e: Exception){}
         setListMember()
-
         btnSave.setOnClickListener(this)
         rlBack.setOnClickListener(this)
         btnSaveMember.setOnClickListener(this)
         btnProfile.setOnClickListener(this)
     }
+    private fun setFormData(datagroup: DataListGroup) {
+        etNameGroup.text = datagroup.nameGroup.toEditable()
+        etPriceMember.text = datagroup.priceMember.toEditable()
+        listMember = db.readMember(datagroup.id)
+        btnProfile.setImageResource(poinHelper.getProfileImage(datagroup.img!!.toInt()))
+    }
+
     private fun setListMember(){
         listMember = db.readMember(idGroup)
         adapter = MemberAdapter(listMember, this)
@@ -80,7 +95,12 @@ class CreateGroupActivity : AppCompatActivity(), View.OnClickListener, ViewGetPr
     private fun inputData(nameGroup: String, typeGroup: String, price: String) {
         var totalMember = db.readMember(idGroup).size
         if (totalMember>0){
-            val input = db.insertData(DataListGroup(idGroup, nameGroup, typeGroup, price, totalMember, img ))
+
+            if (modeEdit) {
+                input = db.updateData(DataListGroup(idGroup, nameGroup, typeGroup, price, totalMember, img))
+            }else {
+                input = db.insertData(DataListGroup(idGroup, nameGroup, typeGroup, price, totalMember, img))
+            }
             if (!input)
                 Toast.makeText(this, getString(R.string.fail_input), Toast.LENGTH_LONG).show()
             else{
@@ -138,7 +158,7 @@ class CreateGroupActivity : AppCompatActivity(), View.OnClickListener, ViewGetPr
 
     override fun onGetProflie(index: Int) {
         img = index.toString()
-        btnProfile.setImageResource(profileHelper.getProfileImage(index))
+        btnProfile.setImageResource(poinHelper.getProfileImage(index))
         dialog.dismiss()
     }
 }

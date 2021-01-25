@@ -12,23 +12,23 @@ import tam.pa.arisanapps.R
 import tam.pa.arisanapps.model.DataListGroup
 import tam.pa.arisanapps.activity.detailGroup.DetailGroupActivity
 import tam.pa.arisanapps.activity.home.dialog.EditListDialog
-import tam.pa.arisanapps.helper.ProfileHelper
+import tam.pa.arisanapps.helper.PoinHelper
 import tam.pa.arisanapps.helper.SharedPref
 
 class ListGroupAdapter(val listGroup: ArrayList<DataListGroup>, val context: Context):
     RecyclerView.Adapter<ListGroupAdapter.vholder>() {
-    val profileHelper = ProfileHelper(context)
+    val profileHelper = PoinHelper(context)
     class vholder(view: View) : RecyclerView.ViewHolder(view) {
         val tvNameGroup: TextView = view.findViewById(R.id.tvNameGroup)
         val tvType: TextView = view.findViewById(R.id.tvType)
         val tvMember: TextView = view.findViewById(R.id.tvMember)
         val imgProfile: ImageView = view.findViewById(R.id.imgProfile)
 
-        fun bind(get: DataListGroup, profileHelper: ProfileHelper) {
+        fun bind(get: DataListGroup, poinHelper: PoinHelper) {
             tvNameGroup.text = get.nameGroup
             tvType.text = get.type
             tvMember.text = get.totalMember.toString()+" member"
-            imgProfile.setImageResource(profileHelper.getProfileImage(get.img!!.toInt()))
+            imgProfile.setImageResource(poinHelper.getProfileImage(get.img!!.toInt()))
         }
 
     }

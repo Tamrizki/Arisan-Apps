@@ -12,6 +12,8 @@
     <string name="price_member">Price per-member</string>
     <string name="edit_group">Edit Group</string>
     <string name="delete">Delete</string>
+    <string name="back">Kembali</string>
+    <string name="repeat">Ulangi</string>
     <string name="call">Call</string>
     <string name="win">Already won</string>
     <string name="input_member">Input member</string>
