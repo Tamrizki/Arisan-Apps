@@ -132,6 +132,12 @@ class DbHandler(val context: Context): SQLiteOpenHelper(context, DbHandler.DB_NA
         db.close()
         return (Integer.parseInt("$_success") != -1)
     }
+    fun deleteAllMemberGroup(idGroup: Int): Boolean{
+        val db = this.writableDatabase
+        val _success = db.delete(TABLE_MEMBER, IDM_GROUP + "=?", arrayOf(idGroup.toString())).toLong()
+        db.close()
+        return (Integer.parseInt("$_success") != -1)
+    }
 
     fun insertData(data: DataListGroup): Boolean{
         val db = this.writableDatabase

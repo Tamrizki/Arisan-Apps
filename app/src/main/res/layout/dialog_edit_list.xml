@@ -24,23 +24,23 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp">
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Batal"
+                style="@style/reg_16dp"
+                android:textColor="@color/black_medium"
+                android:padding="10dp"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/btnDelete"
+                android:layout_marginEnd="30dp"/>
+            <Button
                 android:id="@+id/btnDelete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/delete"
-                style="@style/reg_16dp"
-                android:textColor="@color/red"
-                android:padding="10dp"
-                android:layout_gravity="center_vertical"
-                android:layout_toLeftOf="@+id/btnEdit"
-                android:layout_marginEnd="30dp"/>
-            <Button
-                android:id="@+id/btnEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:background="@drawable/bg_button"
+                android:backgroundTint="@color/red"
                 android:textSize="12sp"
-                android:text="@string/edit_group"
+                android:text="@string/delete"
                 android:layout_alignParentEnd="true"
                 android:paddingHorizontal="20dp"/>
         </RelativeLayout>

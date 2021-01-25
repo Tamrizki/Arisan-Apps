@@ -29,6 +29,13 @@
             android:text="@string/name_member"
             android:textColor="@color/black_medium"/>
     </LinearLayout>
+    <ImageView
+        android:id="@+id/btnRemoveMember"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/ic_remove"
+        android:visibility="gone"/>
     <TextView
         android:id="@+id/tvStatusPayment"
         android:layout_width="wrap_content"

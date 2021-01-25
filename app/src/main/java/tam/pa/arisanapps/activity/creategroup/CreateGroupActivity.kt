@@ -61,7 +61,7 @@ class CreateGroupActivity : AppCompatActivity(), View.OnClickListener, ViewGetPr
 
     private fun setListMember(){
         listMember = db.readMember(idGroup)
-        adapter = MemberAdapter(listMember, this)
+        adapter = MemberAdapter(listMember, this, ViewGetProfile)
         rvMember.setHasFixedSize(true)
         rvMember.adapter = adapter
         rvMember.layoutManager = LinearLayoutManager(this)
@@ -74,14 +74,21 @@ class CreateGroupActivity : AppCompatActivity(), View.OnClickListener, ViewGetPr
                 inputData(etNameGroup.text.toString(), spType.selectedItem.toString(), etPriceMember.text.toString())
             }
         }else if (view == rlBack){
-            onBackPressed()
+            if (modeEdit){
+                if (validateForm()){
+                    Toast.makeText(this, "Data berhasil disimpan!", Toast.LENGTH_SHORT).show()
+                    onBackPressed()
+                }
+            }else {
+                onBackPressed()
+            }
         }else if (view == btnSaveMember){
             if (validateFormMember()){
                 val input= db.insertMember(DataListMember(getIdMember(), idGroup, etNameMember.text.toString(), etPhoneMember.text.toString(), "0", "0"))
                 if (!input){
-                    Toast.makeText(this, getString(R.string.fail_input), Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, getString(R.string.fail_input), Toast.LENGTH_SHORT).show()
                 } else{
-                    Toast.makeText(this, getString(R.string.success_input), Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, getString(R.string.success_input), Toast.LENGTH_SHORT).show()
                     clearformMember()
                     setListMember()
                 }
@@ -95,22 +102,21 @@ class CreateGroupActivity : AppCompatActivity(), View.OnClickListener, ViewGetPr
     private fun inputData(nameGroup: String, typeGroup: String, price: String) {
         var totalMember = db.readMember(idGroup).size
         if (totalMember>0){
-
             if (modeEdit) {
                 input = db.updateData(DataListGroup(idGroup, nameGroup, typeGroup, price, totalMember, img))
             }else {
                 input = db.insertData(DataListGroup(idGroup, nameGroup, typeGroup, price, totalMember, img))
             }
             if (!input)
-                Toast.makeText(this, getString(R.string.fail_input), Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.fail_input), Toast.LENGTH_SHORT).show()
             else{
-                Toast.makeText(this, getString(R.string.success_input), Toast.LENGTH_LONG).show()
-                clearFormGroup()
+                Toast.makeText(this, getString(R.string.success_input), Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, HomeActivity::class.java))
+                clearFormGroup()
                 finish()
             }
         }else{
-            Toast.makeText(this, getString(R.string.info_minim_member), Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.info_minim_member), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -160,5 +166,9 @@ class CreateGroupActivity : AppCompatActivity(), View.OnClickListener, ViewGetPr
         img = index.toString()
         btnProfile.setImageResource(poinHelper.getProfileImage(index))
         dialog.dismiss()
+    }
+
+    override fun onUpdateList() {
+        setListMember()
     }
 }

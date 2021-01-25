@@ -11,12 +11,14 @@ import androidx.recyclerview.widget.RecyclerView
 import tam.pa.arisanapps.R
 import tam.pa.arisanapps.model.DataListGroup
 import tam.pa.arisanapps.activity.detailGroup.DetailGroupActivity
+import tam.pa.arisanapps.activity.home.HomeView
 import tam.pa.arisanapps.activity.home.dialog.EditListDialog
 import tam.pa.arisanapps.helper.PoinHelper
 import tam.pa.arisanapps.helper.SharedPref
 
-class ListGroupAdapter(val listGroup: ArrayList<DataListGroup>, val context: Context):
+class ListGroupAdapter(val listGroup: ArrayList<DataListGroup>, val context: Context, homeView: HomeView):
     RecyclerView.Adapter<ListGroupAdapter.vholder>() {
+    var homeView: HomeView = homeView
     val profileHelper = PoinHelper(context)
     class vholder(view: View) : RecyclerView.ViewHolder(view) {
         val tvNameGroup: TextView = view.findViewById(R.id.tvNameGroup)
@@ -40,7 +42,7 @@ class ListGroupAdapter(val listGroup: ArrayList<DataListGroup>, val context: Con
     override fun onBindViewHolder(holder: vholder, position: Int) {
         holder.bind(listGroup.get(position), profileHelper)
         holder.itemView.setOnLongClickListener {
-            val dialog = EditListDialog(context, listGroup.get(position).nameGroup)
+            val dialog = EditListDialog(context, listGroup.get(position), homeView)
             dialog.show()
             return@setOnLongClickListener(true)
         }

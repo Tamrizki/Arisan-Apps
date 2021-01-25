@@ -9,24 +9,28 @@ import android.view.Window
 import android.widget.Toast
 import kotlinx.android.synthetic.main.dialog_edit_list.*
 import tam.pa.arisanapps.R
+import tam.pa.arisanapps.activity.home.HomeView
+import tam.pa.arisanapps.helper.DbHandler
+import tam.pa.arisanapps.model.DataListGroup
 
-class EditListDialog (val ctx: Context, val nameList: String): Dialog( ctx), View.OnClickListener {
-
+class EditListDialog(val ctx: Context, val dataGroup: DataListGroup, homeView: HomeView): Dialog( ctx), View.OnClickListener {
+    lateinit var dbHandler: DbHandler
+    var homeView = homeView
     init {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         setContentView(R.layout.dialog_edit_list)
-        tvTitle.text = nameList
+        dbHandler = DbHandler(ctx)
+        tvTitle.text = dataGroup.nameGroup
         btnDelete.setOnClickListener(this)
-        btnEdit.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         if (view == btnDelete){
-            Toast.makeText(ctx, "Delete clicked!", Toast.LENGTH_LONG).show()
-        }
-        else if (view == btnEdit){
-            Toast.makeText(ctx, "Edit clicked!", Toast.LENGTH_LONG).show()
+            dbHandler.deleteData(dataGroup.id)
+            dbHandler.deleteAllMemberGroup(dataGroup.id)
+            homeView.onUpdateList()
+            dismiss()
         }
     }
 
