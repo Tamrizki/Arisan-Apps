@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="16dp"
+    android:paddingVertical="16dp"
+    android:paddingHorizontal="25dp"
     android:layout_marginVertical="5dp"
     android:background="@drawable/bg_list_member_white">
     <LinearLayout
@@ -19,7 +20,7 @@
             android:layout_height="wrap_content"
             style="@style/semibold_18dp"
             android:text="@string/name_member"
-            android:textColor="@color/black_medium"/>
+            android:textColor="@color/cl_darkGreen"/>
         <TextView
             android:id="@+id/tvPhone"
             android:layout_width="wrap_content"
@@ -27,7 +28,7 @@
             style="@style/reg_12dp"
             android:layout_marginTop="6dp"
             android:text="@string/name_member"
-            android:textColor="@color/black_medium"/>
+            android:textColor="@color/cl_darkGreen"/>
     </LinearLayout>
     <ImageView
         android:id="@+id/btnRemoveMember"
@@ -41,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/paid"
-        android:textColor="@color/green"
-        style="@style/semibold_12dp"
+        android:textColor="@color/cl_green"
+        style="@style/semibold_16dp"
         android:layout_gravity="center_vertical"/>
 </LinearLayout>

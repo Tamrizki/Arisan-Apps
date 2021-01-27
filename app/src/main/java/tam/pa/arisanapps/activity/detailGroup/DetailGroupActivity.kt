@@ -43,8 +43,8 @@ class DetailGroupActivity : AppCompatActivity(), View.OnClickListener {
     private fun setDataGroup() {
         tvTitlePage.text = dataGroup.nameGroup
         var tvTotal = dataGroup.priceMember.toInt() * db.readMember(dataGroup.id).size
-        tvTotalMoney.text = tvTotal.toString()
-        tvPriceMember.text = "Rp. "+dataGroup.priceMember
+        tvTotalMoney.text = poinHelper.formatRupiah(tvTotal.toLong())
+        tvPriceMember.text = poinHelper.formatRupiah(dataGroup.priceMember.toLong())
         imgProfile.setImageResource(poinHelper.getProfileImage(dataGroup.img!!.toInt()))
     }
 
@@ -66,4 +66,5 @@ class DetailGroupActivity : AppCompatActivity(), View.OnClickListener {
         super.onBackPressed()
         startActivity(Intent(this, HomeActivity::class.java))
     }
+
 }

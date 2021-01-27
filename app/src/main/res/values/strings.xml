@@ -3,7 +3,7 @@
     <string name="skip">Skip</string>
     <string name="next">Next</string>
     <string name="hello">Hello there</string>
-    <string name="create_a_groups">Create a group</string>
+    <string name="create_a_groups">Create Group</string>
     <string name="active_group">Active groups</string>
     <string name="save">Save</string>
     <string name="add_member">Add Member</string>
@@ -25,7 +25,7 @@
     <string name="info_minim_member">Grup harus berisi minimal 1 member!</string>
     <string name="unpaid">Unpaid</string>
     <string name="valid_form">Form tidak boleh kosong!</string>
-    <string name="money_collected">Money collected</string>
+    <string name="money_collected">Money has collected</string>
     <string name="name_member">Name member</string>
     <string name="phone_member">Phone</string>
     <string-array name="typeArisan">

@@ -5,12 +5,13 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="5dp"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="15dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:orientation="horizontal">
+        android:background="@drawable/bg_list_dark"
+        android:orientation="horizontal"
+        android:padding="10dp">
         <androidx.cardview.widget.CardView
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -32,17 +33,17 @@
                 android:id="@+id/tvNameGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/semibold_18dp"
+                style="@style/bold_18dp"
                 android:text="@string/group_name"
-                android:textColor="@color/black_medium"
+                android:textColor="@color/white"
                 />
             <TextView
                 android:id="@+id/tvType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/reg_12dp"
+                style="@style/semibold_12dp"
                 android:text="Type"
-                android:textColor="@color/black_medium"
+                android:textColor="@color/white"
                 android:layout_marginTop="6dp"
                 />
         </LinearLayout>
@@ -50,9 +51,10 @@
             android:id="@+id/tvMember"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="20 Member"
-            style="@style/reg_12dp"
-            android:textColor="@color/black_medium"
+            android:hint="0 Member"
+            style="@style/reg_16dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:layout_gravity="center_vertical"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

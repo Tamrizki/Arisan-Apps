@@ -15,4 +15,12 @@
     <color name="red_50">#80E94E49</color>
     <color name="black_medium">#353535</color>
     <color name="gray">#F5F5F5</color>
+
+    <!--    -->
+    <color name="cl_darkGreen">#273D4B</color>
+    <color name="cl_green">#2FCF87</color>
+    <color name="cl_whiteBackground">#F3F7FA</color>
+    <color name="cl_grey">#B2B2B2</color>
+    <color name="cl_red">#FF112E</color>
+
 </resources>

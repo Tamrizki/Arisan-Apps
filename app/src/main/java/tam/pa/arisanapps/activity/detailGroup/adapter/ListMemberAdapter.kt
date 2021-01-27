@@ -24,10 +24,10 @@ class ListMemberAdapter(val context: Context, val list: MutableList<DataListMemb
             tvPhone.text = get.phone
             if (get.statusPayment.equals("1")){
                 tvStatusPayment.text = itemView.resources.getString(R.string.paid)
-                tvStatusPayment.setTextColor(itemView.resources.getColor(R.color.green))
+                tvStatusPayment.setTextColor(itemView.resources.getColor(R.color.cl_green))
             }else{
                 tvStatusPayment.text = itemView.resources.getString(R.string.unpaid)
-                tvStatusPayment.setTextColor(itemView.resources.getColor(R.color.red))
+                tvStatusPayment.setTextColor(itemView.resources.getColor(R.color.cl_red))
             }
             if (get.win.equals("1")){
                 llBackground.setBackgroundDrawable(itemView.resources.getDrawable(R.drawable.bg_list_member_dark))

@@ -9,6 +9,7 @@ import android.os.VibrationEffect
 import android.os.Vibrator
 import androidx.core.content.ContextCompat.getSystemService
 import tam.pa.arisanapps.R
+import java.text.NumberFormat
 import java.util.*
 
 class PoinHelper(val context: Context){
@@ -49,5 +50,11 @@ class PoinHelper(val context: Context){
     fun getRandom(to: Int) : Int {
         val random = Random()
         return random.nextInt(to - 0) + 0
+    }
+
+    fun formatRupiah(number: Long): String{
+        val localId = Locale("in", "ID")
+        val numberFormat = NumberFormat.getCurrencyInstance(localId)
+        return numberFormat.format(number)
     }
 }
