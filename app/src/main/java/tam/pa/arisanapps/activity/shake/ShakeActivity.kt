@@ -7,6 +7,7 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Vibrator
@@ -36,13 +37,14 @@ class ShakeActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shake)
-        poinHelper = PoinHelper(this)
         db = DbHandler(this)
-        setupProgressBar()
-        setupSensorAcceleration()
+        poinHelper = PoinHelper(this)
         idGroup = intent.getIntExtra("idgroup", 0)
         dataMember = db.readAndFilterMember(idGroup)
+        setupProgressBar()
+        setupSensorAcceleration()
 
+        rlBack.setOnClickListener(this)
         btnBack.setOnClickListener(this)
         btnRepeat.setOnClickListener(this)
     }
@@ -80,8 +82,11 @@ class ShakeActivity : AppCompatActivity(), View.OnClickListener {
                     rlShake.visibility = View.INVISIBLE
                     llCongrats.visibility = View.VISIBLE
                     cvButton.visibility = View.VISIBLE
-                    lottieAnimGift.playAnimation()
+                    rlBack.visibility = View.GONE
+
                     poinHelper.getVibrator(500)
+                    poinHelper.playSound(this@ShakeActivity)
+                    lottieAnimGift.playAnimation()
                     dataWinner = dataMember[poinHelper.getRandom(dataMember.size)]
                     tvName.text = dataWinner.nameMember
                 }
@@ -115,6 +120,8 @@ class ShakeActivity : AppCompatActivity(), View.OnClickListener {
             val intent = Intent(this, ShakeActivity::class.java)
             intent.putExtra("idgroup", idGroup)
             startActivity(intent)
+        } else if (view == rlBack){
+           onBackPressed()
         }
     }
 }

@@ -1,9 +1,11 @@
 package tam.pa.arisanapps.activity.home
 
 import android.content.Intent
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import tam.pa.arisanapps.R
@@ -15,10 +17,12 @@ import tam.pa.arisanapps.model.DataListGroup
 class HomeActivity : AppCompatActivity(), View.OnClickListener, HomeView{
     lateinit var homeView: HomeView
     var listGroup: ArrayList<DataListGroup> = ArrayList()
+    lateinit var mMediaPlayer: MediaPlayer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         homeView = this
+
         setListGroup()
         btnCreateGroup.setOnClickListener(this)
     }

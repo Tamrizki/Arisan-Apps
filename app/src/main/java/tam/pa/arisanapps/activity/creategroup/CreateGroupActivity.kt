@@ -113,7 +113,7 @@ class CreateGroupActivity : AppCompatActivity(), View.OnClickListener, ViewGetPr
                 Toast.makeText(this, getString(R.string.success_input), Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, HomeActivity::class.java))
                 clearFormGroup()
-                finish()
+                finishAffinity()
             }
         }else{
             Toast.makeText(this, getString(R.string.info_minim_member), Toast.LENGTH_SHORT).show()
@@ -170,5 +170,12 @@ class CreateGroupActivity : AppCompatActivity(), View.OnClickListener, ViewGetPr
 
     override fun onUpdateList() {
         setListMember()
+    }
+
+    override fun onBackPressed() {
+        if (!modeEdit) {
+            db.deleteAllMemberGroup(idGroup)
+        }
+        super.onBackPressed()
     }
 }

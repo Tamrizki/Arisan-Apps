@@ -125,7 +125,27 @@ class DbHandler(val context: Context): SQLiteOpenHelper(context, DbHandler.DB_NA
         }
         return listData
     }
-
+    fun readUnpaidMember(idGroup: Int): MutableList<DataListMember>{
+        val listData: MutableList<DataListMember> = ArrayList()
+        val db = writableDatabase
+        val query =  "SELECT * FROM $TABLE_MEMBER WHERE $IDM_GROUP = $idGroup"
+        val result = db.rawQuery(query, null)
+        if (result.moveToFirst()){
+            do {
+                if (result.getString(result.getColumnIndex(PAYMENT_STATUS)).equals("0")){
+                    listData.add(DataListMember(
+                            result.getString(result.getColumnIndex(IDM)).toInt(),
+                            result.getString(result.getColumnIndex(IDM_GROUP)).toInt(),
+                            result.getString(result.getColumnIndex(NAMEM)),
+                            result.getString(result.getColumnIndex(PHONE)),
+                            result.getString(result.getColumnIndex(PAYMENT_STATUS)),
+                            result.getString(result.getColumnIndex(WIN_STATUS))
+                    ))
+                }
+            }while (result.moveToNext())
+        }
+        return listData
+    }
     fun deleteMember(id: Int): Boolean{
         val db = this.writableDatabase
         val _success = db.delete(TABLE_MEMBER, IDM + "=?", arrayOf(id.toString())).toLong()

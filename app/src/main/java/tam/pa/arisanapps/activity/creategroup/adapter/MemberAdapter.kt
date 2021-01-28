@@ -3,10 +3,12 @@ package tam.pa.arisanapps.activity.creategroup.adapter
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import tam.pa.arisanapps.R
@@ -24,10 +26,14 @@ class MemberAdapter(val list: MutableList<DataListMember>, val context: Context,
         val tvPhone: TextView = view.findViewById(R.id.tvPhone)
         val tvStatusPayment: TextView = view.findViewById(R.id.tvStatusPayment)
         val btnRemove: ImageView = view.findViewById(R.id.btnRemoveMember)
+        val llBackground: LinearLayout = view.findViewById(R.id.llBackground)
         fun bind(get: DataListMember) {
+            tvName.setTextColor(itemView.resources.getColor(R.color.white))
+            tvPhone.setTextColor(itemView.resources.getColor(R.color.cl_red))
             tvName.text = get.nameMember
             tvPhone.text = get.phone
             tvStatusPayment.visibility = View.GONE
+            llBackground.setBackgroundDrawable(itemView.resources.getDrawable(R.drawable.bg_list_dark))
         }
     }
 

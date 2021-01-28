@@ -158,10 +158,10 @@
                     android:layout_height="wrap_content"
                     android:text="@string/edit_group"
                     style="@style/bold_12dp"
+                    android:backgroundTint="@color/white"
                     android:paddingVertical="10dp"
                     android:paddingHorizontal="16dp"
                     android:background="@drawable/bg_button_white"
-                    android:backgroundTint="@color/white"
                     android:textColor="@color/cl_darkGreen"
                     android:layout_centerHorizontal="true" />
             </RelativeLayout>

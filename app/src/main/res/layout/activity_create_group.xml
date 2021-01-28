@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="@color/cl_whiteBackground"
     android:orientation="vertical"
     tools:context=".activity.creategroup.CreateGroupActivity">
     <LinearLayout
@@ -69,9 +69,9 @@
                         android:background="@drawable/btn_photo">
                         <ImageView
                             android:id="@+id/btnProfile"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/ic_camera"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/ic_profile_user"
                             android:layout_centerInParent="true"/>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
@@ -85,12 +85,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Group name"
+                        app:boxStrokeColor="@color/cl_green"
                         app:endIconMode="clear_text">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etNameGroup"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@color/gray"
+                            android:background="@color/cl_whiteBackground"
                             style="@style/reg_16dp"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -100,8 +101,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/price_member"
+                        app:boxStrokeColor="@color/cl_green"
                         app:endIconMode="clear_text"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="16dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etPriceMember"
                             android:layout_width="match_parent"
@@ -116,7 +118,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:entries="@array/typeArisan"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="16dp"
                         style="@style/reg_16dp"
                         android:paddingVertical="14dp"/>
                 </LinearLayout>
@@ -125,12 +127,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="10dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="20dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="20dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -144,6 +146,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/name_member"
                         app:endIconMode="clear_text"
+                        app:boxStrokeColor="@color/cl_green"
                         android:layout_marginTop="6dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etNameMember"
@@ -158,6 +161,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/phone_member"
+                        android:layout_marginTop="16dp"
+                        app:boxStrokeColor="@color/cl_green"
                         app:endIconMode="clear_text">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etPhoneMember"
@@ -190,7 +195,9 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvMember"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

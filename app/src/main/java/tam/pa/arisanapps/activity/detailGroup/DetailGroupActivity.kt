@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_detail_group.*
 import tam.pa.arisanapps.R
@@ -16,6 +17,7 @@ import tam.pa.arisanapps.helper.DbHandler
 import tam.pa.arisanapps.helper.PoinHelper
 import tam.pa.arisanapps.helper.SharedPref
 import tam.pa.arisanapps.model.DataListGroup
+import kotlin.math.log
 
 class DetailGroupActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var poinHelper: PoinHelper
@@ -32,12 +34,16 @@ class DetailGroupActivity : AppCompatActivity(), View.OnClickListener {
         idGroup = sharedPref.getValue("DetailIdGroup").toString()
         dataGroup = db.readDataGroup(idGroup.toInt())
         setDataGroup()
-        rvListMember.setHasFixedSize(true)
-        rvListMember.layoutManager = LinearLayoutManager(this)
-        rvListMember.adapter = ListMemberAdapter(this, db.readMember(dataGroup.id))
+        setupList()
         rlBack.setOnClickListener(this)
         btnVote.setOnClickListener(this)
         btnEditGroup.setOnClickListener(this)
+    }
+
+    private fun setupList() {
+        rvListMember.setHasFixedSize(true)
+        rvListMember.layoutManager = LinearLayoutManager(this)
+        rvListMember.adapter = ListMemberAdapter(this, db.readMember(dataGroup.id))
     }
 
     private fun setDataGroup() {
@@ -52,9 +58,13 @@ class DetailGroupActivity : AppCompatActivity(), View.OnClickListener {
         if (view == rlBack){
             onBackPressed()
         } else if (view == btnVote){
-            val intent = Intent(this, ShakeActivity::class.java)
-            intent.putExtra("idgroup", dataGroup.id)
-            startActivity(intent)
+            if (db.readUnpaidMember(idGroup.toInt()).size == 0){
+                val intent = Intent(this, ShakeActivity::class.java)
+                intent.putExtra("idgroup", dataGroup.id)
+                startActivity(intent)
+            }else{
+                Toast.makeText(this, "Masih ada member yang belum membayar!", Toast.LENGTH_SHORT).show()
+            }
         } else if (view == btnEditGroup){
             val intent = Intent(this, CreateGroupActivity::class.java)
             intent.putExtra("editGroup", dataGroup)

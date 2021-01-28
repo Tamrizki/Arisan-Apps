@@ -4,11 +4,14 @@ import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import android.media.MediaPlayer
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.util.Log
 import androidx.core.content.ContextCompat.getSystemService
 import tam.pa.arisanapps.R
+import tam.pa.arisanapps.model.DataListMember
 import java.text.NumberFormat
 import java.util.*
 
@@ -56,5 +59,23 @@ class PoinHelper(val context: Context){
         val localId = Locale("in", "ID")
         val numberFormat = NumberFormat.getCurrencyInstance(localId)
         return numberFormat.format(number)
+    }
+
+    fun cekStatusPayment(list: MutableList<DataListMember>): Boolean{
+        var complete = false
+        Log.d("asda", list.toString())
+        for (num in 0..list.size){
+            if (!list[num].statusPayment.equals("0"))
+                complete = true
+            else
+                complete = false
+        }
+        return complete
+    }
+
+    fun playSound(context: Context) {
+        val mMediaPlayer = MediaPlayer.create(context, R.raw.ta_da)
+        mMediaPlayer!!.isLooping = false
+        mMediaPlayer!!.start()
     }
 }
